@@ -2,7 +2,7 @@
 A deep learning model for accurate diagnosis of infection using antibody repertoires
 
 The DeepID runs on python 3.7 version or later.
-1) Make sure that [paddlepaddle](https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/windows-pip.html) 1.8.4 has installed for current python environment; 
+1) Make sure that [paddlepaddle](https://github.com/paddlepaddle/paddle) 1.8.4 has installed for current python environment; 
 2) 
 
 
