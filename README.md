@@ -1,6 +1,12 @@
 ## DeepID
 A deep learning model for accurate diagnosis of infection using antibody repertoires
 
+The DeepID runs on python 3.7 version or later.
+1) Make sure that [paddlepaddle](https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/windows-pip.html) 1.8.4 has installed for current python environment; 
+2) 
+
+
+
  1) MATLAB is the tool of Chi-MIC;    
  2)  Make sure that c++ has installed in your computer for compilation;  In the matlab runtime environment, use the ```mex -setup``` command to set: <use of'Microsoft Visual C++' for C++ language compilation>
  3)  Running program “make.m” to compile the equipartitionYaxis2.c, getsuper2var.c and getmutualI2var_fix4.c to mex files;
