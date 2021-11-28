@@ -11,6 +11,6 @@ Running DeepID requires the python (3.7 version or later) runtime environment.
 6) The user also can apply it to their own data by replacing the input data (test_repertoire_level_features.npy and test_sequence_level_features.npy);
 7) Here, only four sequence-level features including complexity of reads, clone fraction, KF8, and F5 were used for testing as the saved_feat in SLM.py was set to [158,159,114,58].
     
-Source: 
+### Source: 
 Yuan Chen, Zhiming Ye, Yanfang Zhang, et al. A deep learning model for accurate diagnosis of infection using antibody repertoires.
-Contact me：chenyuan0510@126.com
+If you have any questions or problems, please e-mail chenyuan0510@126.com
