@@ -62,7 +62,7 @@ class myfcm(fluid.dygraph.Layer):
         outputs_final = self.fc3(outputs2)
         return outputs_final
 
-def evaluation(model, xfile, yfile):
+def evaluation(model, xfile, yfile, output_file):
     #with fluid.dygraph.guard():
     with fluid.dygraph.guard(place=fluid.CPUPlace()):
         print('start evaluation .......')
@@ -82,16 +82,18 @@ def evaluation(model, xfile, yfile):
             accuracies.append(acc.numpy())
             pred_lab = np.argsort(pred.numpy())
             rlt=np.vstack((rlt,np.hstack((pred.numpy(),pred_lab,y_data))))
-        np.savetxt('RLM_test_rlt.csv', rlt, fmt='%f', delimiter=',')
+        np.savetxt(output_file, rlt, fmt='%f', delimiter=',')
         return np.mean(accuracies)
 
 if __name__ == '__main__':
     with fluid.dygraph.guard():
-        epoch_num=500
-        testfile=np.load('test_repertoire_level_features.npy')
+        x_file_in = sys.argv[1]
+        y_file_in = sys.argv[2]
+        output_file = sys.argv[3]
+        testfile=np.load('%s.npy'%x_file_in)
         #testyfile=np.zeros([testfile.shape[0],1])
-        testyfile=np.load('y_test.npy')
+        testyfile=np.load('%s.npy'%y_file_in)
         model = myfcm(testfile.shape[1])
         #train(model, trainfile, trainyfile, featnum)
-        acc = evaluation(model, testfile, testyfile)
+        acc = evaluation(model, testfile, testyfile, output_file)
         print("RLM_test acc is: {}".format(acc))

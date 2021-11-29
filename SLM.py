@@ -74,7 +74,7 @@ class MCLS2(fluid.dygraph.Layer):
         outputs_final = self.fc3(outputs3)
         return outputs_final
 
-def evaluation(model,x,y):
+def evaluation(model,x,y,output_file):
     with fluid.dygraph.guard():
         #print('start evaluation .......')
         model_state_dict, _ = fluid.load_dygraph('SLM')
@@ -93,18 +93,19 @@ def evaluation(model,x,y):
             pred_lab = np.argsort(pred.numpy())
             rlt=np.vstack((rlt,np.hstack((pred.numpy(),pred_lab,y_data))))
         print("[validation] accuracy: {}".format(np.mean(accuracies)))
-        np.savetxt('SLM_rlt_4feat.csv', rlt, fmt='%f', delimiter=',')
+        np.savetxt(output_file, rlt, fmt='%f', delimiter=',')
         #return np.mean(accuracies)
+
 if __name__ == '__main__':
     with fluid.dygraph.guard():
-        #datadir = 'G:/script/phy/'
-        train0=np.load('top160train_1.npy')
-        train0y=np.load('y_top161train_1.npy')
-        test0=np.load('top160test_218.npy')
-        test0y=np.load('y_top161test_218.npy')
+        x_file_in = sys.argv[1]
+        y_file_in = sys.argv[2]
+        output_file = sys.argv[3]
+        test0=np.load('%s.npy'%x_file_in)
+        test0y=np.load('%s.npy'%y_file_in)
         saved_feat=[158,159,114,58]
         tmp_train = train0[:,:,saved_feat]
         tmp_test = test0[:,:,saved_feat]
         model = MCLS2(len(saved_feat))
         #train(model, tmp_train, train0y)
-        evaluation(model, tmp_test, test0y)
+        evaluation(model, tmp_test, test0y, output_file)
