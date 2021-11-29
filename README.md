@@ -16,14 +16,17 @@ A deep learning model for accurate diagnosis of infection using antibody reperto
    ```
 6) The command for evaluating DeepID on the test set is (Must run RLM and SLM first):
    ```
-   DeepID.py test_rlt.csv rlt_4feat.csv DeepID_rlt.csv
+   python DeepID.py test_rlt.csv rlt_4feat.csv DeepID_rlt.csv
    ```
 #### File details:
-1) 
+1) The RLM.pdparams and SLM.pdparams are the model files that has been trained;
+2) RLM.py, SLM.py and DeepID.py are the scripts for RLM, SLM and DeepID model;
+3) The test_repertoire_level_features.npy and test_sequence_level_features.npy are the 547 repertoire-level features and 160 sequence-level features for test dataset, respectively. The names and order of these features are listed in the Feature names.xlsx. test_repertoire_level_features.npy is a 120\*547 matrix with 120 samples and 547 features; test_sequence_level_features.npy is a 120\*160\*160 matrix, in which the three dimensions are samples, clones and sequence_level_features, respectively;
+4) The y_test.npy is the true lables of the test dataset and only used for accuracy calculation;
 
-7) The RLM.pdparams, SLM.pdparams, RLM.py and SLM.py are necessary files for DeepID model. RLM.pdparams and SLM.pdparams are the trianed models of RLM and SLM. RLM.py and SLM.py are the scripts are used to predict the test set;
+7) 
 8) Here we provide a test set for example: test_repertoire_level_features.npy and test_sequence_level_features.npy are 547 repertoire-level features and  160 sequence-level features, respectively. The names and order of these features are listed in the Feature names.xlsx;
-9) test_repertoire_level_features.npy is a 120\*547 matrix with 120 samples and 547 features; test_sequence_level_features.npy is a 120\*160\*160 matrix, in which the three dimensions are samples, clones and sequence_level_features, respectively;
+
 10) Run the RLM.py and SLM.py to get two output files named RLM_test_rlt.csv and SLM_rlt_4feat.csv, respectively. The five columns of the CSV files are Probability of 0 (infection), Probability of 1 (healthy), samples are predicted to be class 0, samples are predicted to be class 1 and the Observed category.
 11) The user also can apply it to their own data by replacing the input data (test_repertoire_level_features.npy and test_sequence_level_features.npy);
 12) Here, only four sequence-level features including complexity of reads, clone fraction, KF8, and F5 were used for testing as the saved_feat in SLM.py was set to [158,159,114,58].
