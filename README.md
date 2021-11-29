@@ -5,15 +5,17 @@ A deep learning model for accurate diagnosis of infection using antibody reperto
 #### Quick start:
 1) Running DeepID requires the python (3.7 version or later) runtime environment; 
 2) Make sure that [paddlepaddle](https://github.com/paddlepaddle/paddle) 1.8.4 has installed for current python environment; 
-3) Download the RLM.pdparams, SLM.pdparams, RLM.py and SLM.py, test_repertoire_level_features.npy and test_sequence_level_features.npy to the running directory;
-4) The command for evaluating RLM on the test_repertoire_level_features are: 
+3) Download the RLM.pdparams, SLM.pdparams, RLM.py and SLM.py, test_repertoire_level_features.npy, test_sequence_level_features.npy and y_test.npy to the running directory;
+4) The command for evaluating RLM on the test_repertoire_level_features is: 
 ```
-   python RLM.py
+   python RLM.py test_repertoire_level_features y_test RLM_test_rlt.csv
 ```
-5) The command for evaluating SLM on the test_sequence_level_features are: 
+5) The command for evaluating SLM on the test_sequence_level_features is: 
 ```
-   python SLM.py
+   python SLM.py test_sequence_level_features y_test SLM_rlt_4feat.csv
 ```
+6) The command for evaluating DeepID on the test set is:
+   DeepID.py test_rlt.csv rlt_4feat.csv outid.csv
 #### File details:
 1) 
 
