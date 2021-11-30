@@ -104,7 +104,7 @@ if __name__ == '__main__':
         test0=np.load('%s.npy'%x_file_in)
         test0y=np.load('%s.npy'%y_file_in)
         saved_feat=[158,159,114,58]
-        tmp_train = train0[:,:,saved_feat]
+        #tmp_train = train0[:,:,saved_feat]
         tmp_test = test0[:,:,saved_feat]
         model = MCLS2(len(saved_feat))
         #train(model, tmp_train, train0y)
