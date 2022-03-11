@@ -60,7 +60,7 @@ class MCF(fluid.dygraph.Layer):
 def evaluation(model, xfile, yfile,output_file):
     with fluid.dygraph.guard():
         #print('start evaluation .......')
-        model_state_dict, _ = fluid.load_dygraph('hea_hbv_influ_cov')
+        model_state_dict, _ = fluid.load_dygraph('muti-classification')
         model.load_dict(model_state_dict)
         model.eval()
         train_loader = data_loader(xfile, yfile, batch_size=100, mode='test')
