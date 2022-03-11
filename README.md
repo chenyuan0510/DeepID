@@ -30,6 +30,11 @@ A deep learning model for accurate diagnosis of infection using antibody reperto
    ```
    python DeepID.py test_rlt.csv rlt_4feat.csv DeepID_rlt.csv
    ```
+7) The command for muti-classification on Healthy, HBV, influenza, and COVID-19:
+   ```
+   python muti-classification.py test_muti-classification y_test_muti-classification output_file
+   ```
+
 #### File details:
 1) The RLM.pdparams and SLM.pdparams are the model files that have been trained;
 2) RLM.py, SLM.py and DeepID.py are the scripts for RLM, SLM and DeepID model;
@@ -37,7 +42,7 @@ A deep learning model for accurate diagnosis of infection using antibody reperto
 4) The y_test.npy is the true labels of the test dataset and is only used for accuracy calculation;
 5) RLM_test_rlt.csv, SLM_rlt_4feat.csv and DeepID_rlt.csv are output files of the RLM.py, SLM.py and DeepID.py, respectively. The five columns of the CSV files are Probability of 0 (infection), Probability of 1 (healthy), samples are predicted to be class 0, samples are predicted to be class 1 and the true labels.
 6) The user also can apply the DeepID to their test dataset by replacing the input data (test_repertoire_level_features.npy, test_sequence_level_features.npy and y_test.npy).
-
+7）For the muti-classification, 0：COVID-19; 1:influenza; 2->HBV; 3:Healthy.
     
 ### Source: 
 Yuan Chen, Zhiming Ye, Yanfang Zhang, et al. A deep learning model for accurate diagnosis of infection using antibody repertoires.
