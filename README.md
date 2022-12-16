@@ -45,6 +45,6 @@ A deep learning model for accurate diagnosis of infection using antibody reperto
 7）For the muti-classification, 0：COVID-19; 1:influenza; 2->HBV; 3:Healthy.
     
 ### Source: 
-Chen Y, Ye Z, Zhang Y, et al. A Deep Learning Model for Accurate Diagnosis of Infection Using Antibody Repertoires[J]. The Journal of Immunology, 2022
+Chen Y, Ye Z, Zhang Y, et al. A Deep Learning Model for Accurate Diagnosis of Infection Using Antibody Repertoires[J]. The Journal of Immunology,20222,08 (12): 2675–2685.(https://doi.org/10.4049/jimmunol.2200063)
 
 If you have any questions or problems, please e-mail chenyuan0510@126.com
